@@ -1,0 +1,85 @@
+.mddoc{
+    font-family: monospace;
+    padding: 2em;
+    overflow-y: auto; /* auto is same as scroll but adds scrollbar only when necessary*/
+    /*max-height: 93vh;*/
+
+    color:lightseagreen;
+}
+
+.mddoc hr{
+    border-bottom: dotted #2d4d4d 1px;
+}
+
+.mddoc pre code{
+    background: rgba(0,50,70,0.85) !important;
+}
+
+.mddoc code{
+    background: indigo !important;
+    /*background-opacity: 0.3 !important;*/
+    color: turquoise;
+}
+
+.mddoc a{
+    color: teal;
+    text-decoration: underline;
+    transition: 7s;
+    font-weight: bolder;
+}
+
+.mddoc a:hover{
+    color:blueviolet;
+    font-weight: normal;
+    transition: 0.07s;
+}
+
+.mddoc h1{
+    text-align: center;
+    text-decoration: solid underline;
+    text-decoration-color: lightseagreen !important;
+}
+
+.mddoc h2, h3, h4, h5, h6{
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.mddoc table{
+    border: solid seagreen 1px;
+}
+
+.mddoc td, th{
+    border-right: solid seagreen 1px;
+}
+
+.mddoc th{
+    border-bottom-style: double;
+    font-weight: bold;
+}
+
+.mddoc td{
+    border-bottom: solid seagreen 1px;
+
+}
+
+/* IMAGE CAPTION USING ADJACENT SELECTOR img + em */
+.mddoc img{
+	margin-left: auto;
+	margin-right:auto;
+	/*vertical-align: middle;*/
+	display: flex;
+}
+.mddoc img+em{
+    font-family: cursive;
+    display: grid;
+    justify-content: center;
+    color: darkorange;
+    text-decoration: underline;
+}
+
+.mddoc table img+td{
+    display: grid;
+    justify-content: center;
+}
+/* IMAGE CAPTION USING ADJACENT SELECTOR img + em */

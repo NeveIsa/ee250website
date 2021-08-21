@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Markdown Reader</title>
+
+<link href="https://unpkg.com/bonsai.css@latest/dist/bonsai.min.css" rel="stylesheet">
+<link href='assets/fontawesome-free-5.15.1-web/css/all.min.css' rel='stylesheet'>
+
+<link href='assets/ee250/common.css' rel='stylesheet'>
+<link href='assets/ee250/mddoc.css' rel='stylesheet'>
+
+</head>
+
+<body>
+
+
+	<div class='container' style='--d:grid; --gtr: 2em 1fr 2em; --h:100vh; --w:100vw;'>
+		<div class='header' style='--ff:monospace; --t: uppercase; --ta:center; --c:white; --weight:bold;'>{{siteheader}}</div>
+		
+		<div class='mddoc'>{{}}</div>
+
+		<div class='footer' id='ACKS' style='--c:gray; --weight: bold'></div>
+	</div>
+	
+
+</body>
+
+<script src='https://cdn.jsdelivr.net/npm/umbrellajs@3.2.3/umbrella.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.7/marked.min.js'></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+
+<link rel="stylesheet"
+      href="//unpkg.com/@highlightjs/cdn-assets@10.5.0/styles/night-owl.min.css">
+<script src="//unpkg.com/@highlightjs/cdn-assets@10.5.0/highlight.min.js"></script>
+
+<script src='assets/ee250/common.js'></script>
+<script src='assets/ee250/mddoc.js'></script>
+
+<script>
+	file = get_params().file
+	window.k=mddoc_fill(file,'.mddoc').then(d=>{hljs.initHighlighting()})
+
+	console.log(k)
+</script>
+
+</html>

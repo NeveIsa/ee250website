@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ruby_http_client (3.5.1)
+    sendgrid-ruby (6.3.8)
+      ruby_http_client (~> 3.4)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  sendgrid-ruby
+
+BUNDLED WITH
+   2.2.4

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <title>EE250</title>
+
+        <link href="https://unpkg.com/bonsai.css@latest/dist/bonsai.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+        <link href='assets/fontawesome-free-5.15.1-web/css/all.min.css' rel='stylesheet'>
+
+
+        <link rel="stylesheet" type="text/css" href="assets/asciinema-player.css" />
+
+        <link href='assets/ee250/mddoc.css' rel='stylesheet'>
+        <link href='assets/ee250/common.css' rel='stylesheet'>
+
+        <script>
+
+        </script>
+
+</head>
+
+
+<body>
+
+    <div class='container' style='--d:grid; --gtr: 2em 1fr 2em; --h:100vh; --w:100vw; --jc:center; --ofy:visible' >
+
+        <div class='header' style='--ff:monospace; --bg:inherit; --ta:center; --c:powderblue; --tt: uppercase; --weight:bold; --bb: dotted gray 1px;'>
+            USC EE250
+        </div>
+
+
+
+        <div style='--d:grid; --gtc: repeat(2,1fr); --gar:1fr; --bb:dotted seagreen 1px; max-height:inherit; --ofy:auto'>
+
+            <!--RIGHT COLUMN-->
+    		<!--overflow auto is same as scroll but auto only puts the scroll bar when necessary, scroll puts it always | already set for .mddoc in mddoc.css-->
+            <div class='mddoc' style='--bl:dotted seagreen 1px; --c:lightseagreen; --maxh:inherit;'></div>
+
+        </div>
+
+        <div class='footer' id='ACKS' style=" --c: gray; --weight: bold; --ff:monospace; --bt:dotted seagreen 1px" >
+			&nbsp;
+			<a style='--td:none' target='blank' href='https://usc.edu'> University of Southern California </a>
+			&nbsp; | &nbsp;
+			<a style='--td:none' href='https://viterbischool.usc.edu/' target='blank'> USC Viterbi </a>
+			&nbsp; | &nbsp;
+			<a style='--td:none' href='https://bytes.usc.edu/ee250/' target='blank'> EE250 </a>
+
+		</div>
+    </div>
+
+</body>
+
+<script src="assets/asciinema-player.js"></script>
+
+<script src='https://cdn.jsdelivr.net/npm/umbrellajs@3.2.3/umbrella.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.7/marked.min.js'></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+
+<link rel="stylesheet"
+      href="//unpkg.com/@highlightjs/cdn-assets@10.5.0/styles/night-owl.min.css">
+<script src="//unpkg.com/@highlightjs/cdn-assets@10.5.0/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+
+<script src='assets/ee250/common.js'></script>
+<script src='assets/ee250/terminalplayer.js'></script>
+<script src='assets/ee250/mddoc.js'></script>
+
+
+
+
+<script>
+
+    window.DOCFOLDER = get_params().folder
+    //console.log(window.DOCFOLDER)
+
+
+    terminalplayer_set_source(`${DOCFOLDER}/demo.cast`)
+    console.log(window.DOCFOLDER)
+
+</script>
+
+
+
+<script>
+
+mddoc_fill(`${DOCFOLDER}/doc.md`,'.mddoc').then((fmmd)=>{
+        fm=fmmd[0];
+        //fill title header
+        if(typeof(fm)=='object')
+        {
+            u('.header').html(fm.title)
+
+        }
+
+        //init highlightjs
+        hljs.initHighlighting();
+
+        window.MDDOC_FM = fm;
+});
+
+
+
+var termsearch_typed = new Typed('#asciinemasearch input',{
+    startDelay: 2000,
+    strings:['search the terminal', 'type your search word', 'and hit enter',''],
+    typeSpeed: 20,
+    backSpeed: 10,
+    backDelay: 1000,
+    smartBackspace: true,
+})
+
+</script>
+
+<script>
+    configure_site();
+
+    //replace/update the site header and title by folder instead of from the site config.yml
+    u('.header').html(DOCFOLDER.toUpperCase())
+    u('title').html(`EE250 - ${DOCFOLDER.toUpperCase()}`);
+</script>
+<script>
+    var clipboard = new ClipboardJS('#asciinemacomment');
+
+    clipboard.on('success', function(e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+
+        btn = u('#asciinemacomment')
+
+        arialabel = btn.attr('aria-label'); //save
+        btn.attr('aria-label','Copied');
+
+        setTimeout(()=>btn.attr('aria-label',arialabel),1000);
+
+        window.open(window.SITECONFIG.gists.lab_comments)
+
+        e.clearSelection();
+
+    });
+
+    clipboard.on('error', function(e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    })
+</script>

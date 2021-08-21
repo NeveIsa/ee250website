@@ -1,0 +1,25 @@
+site:
+        title:  'EE250 Spring 2021'
+        header: 'EE250 : DISTRUBITED SYSTEMS AND INTERNET OF THINGS'
+        logo:   viterbi_logo.png
+        acks:
+                bonsai.css: https://www.bonsaicss.com/
+                Vue.js: https://vuejs.org/
+                UmbrellaJS: https://umbrellajs.com/
+                asciinema: https://asciinema.org/
+                markedjs: https://marked.js.org/
+                js-yaml: https://github.com/nodeca/js-yaml
+                highlightjs: https://highlightjs.org/
+                Typedjs: https://mattboldt.github.io/typed.js/
+                CSSgram: https://una.im/CSSgram/
+                clipboard.js: https://clipboardjs.com/
+                BalloonCSS: https://kazzkiq.github.io/balloon.css/
+                wetty: https://github.com/butlerx/wetty
+
+
+gists:
+        EE250is: https://gist.github.com/NeveIsa/6dc2f6d78650570caa6a79d45bb956cc
+        lab_comments: https://gist.github.com/NeveIsa/a3cdff3d849e1afb7619c643a6de5fe9
+
+siteintro_doc: siteintro.md
+        

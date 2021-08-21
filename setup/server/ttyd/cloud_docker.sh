@@ -1,0 +1,1 @@
+./ttyd.x86_64 --ssl --ssl-cert ../wettyssl/fullchain.pem --ssl-key ../wettyssl/privkey.pem --port 2511 docker run -e "TERM=xterm-256color" --net=host -v $PWD:/root:ro -it --rm sbmohant/ee250 timeout -k3 300 bash /root/RUN_DOCKER_TERMINAL.sh

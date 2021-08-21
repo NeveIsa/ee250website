@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<title>{{sitetitle}}</title>
+
+
+
+
+		<link href="https://unpkg.com/bonsai.css@latest/dist/bonsai.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/cssgram/0.1.12/cssgram.min.css" rel="stylesheet">
+		<link href='assets/fontawesome-free-5.15.1-web/css/all.min.css' rel='stylesheet'>
+
+
+
+		<link href='assets/ee250/common.css' rel='stylesheet'>
+		<link href='assets/ee250/mddoc.css' rel='stylesheet'>
+
+
+
+		<style>
+			#whatisEE250 > a:hover{
+				color:blueviolet !important;
+				transition: 0.5s;
+			}
+		</style>
+
+</head>
+
+
+<body>
+
+	<div class='container' style='--d:grid; --gtr: 2em 1fr 2em; --h:100vh; --w:100vw --jc:center; --ofy:visible'>
+
+		<div class='header' style='--pt:0.1em; --ff:monospace; --bg:inherit; --ta:center; --c:powderblue; --pb:1em; --tt: uppercase; --weight:bold; --bb: dotted gray 1px;'>
+			{{siteheader}}
+		</div>
+
+		<!--overflow auto is same as scroll but auto only puts the scroll bar when necessary, scroll puts it always-->
+		<div style='--d:grid; --gtc: 1fr 1fr; --b:dotted seagreen 1px; --ofy:auto; --maxh:inherit'>
+
+			<!--FIRST MAIN COLUMN-->
+			<div style='--d:grid --gtr:auto auto auto auto; --m:0 --b:dotted seagreen 1px; --ofy:auto;'>
+
+				<img id='sitelogo' style='padding: 5em;' :src='sitelogo'/>
+
+
+
+				<p id='EE250is' style='--weight:bold; --ta:center; --c:turquoise'></p>
+
+
+
+				<div id='commenters' style='--d:flex; flex-flow:row wrap;  --jc:center; --maxh:inherit;'>
+					
+					<!--<div style='--m:0.5em;'><a style='--c:rgb(92, 132, 255); --td:none' target='blank'>EE250 IS ...</a></div>-->
+
+					<div  id='commenterslist' v-for='user in commenters' style='--ta: --m:0.5em;'>
+						
+						<div  style='--d:grid; --gtr:2fr; --mb:1em; --ml:1em;'>
+
+							<a :style='`--levitate-hvr:3;--c:${user.randomcolor}; --td:none`' target='blank' :href='user.url' v-html='user.comment'>
+								<!--{{user.comment}}-->
+							</a>
+							
+							<div class='github_user'>			
+								<p style='--ta:center; --weight:bold; --c:orchid; --bg:royalblue; --td:none;'>{{user.name}}</p>
+								<img :class='user.randomfilter' style='' :src='user.avatar'/>
+							</div>
+							
+						</div>
+						
+					</div>
+									
+				</div>
+
+
+
+				<div title='Click to share your thoughts' id='whatisEE250' style='--d:grid; --m:0.5em; --jc:center'><a href='' style='--c:rgb(92, 132, 255); --td:none' target='blank'>[ SHARE YOUR THOUGHTS ]</a></div>
+			
+			</div>
+			
+
+			<!--SECOND MAIN COLUMN-->
+			<div class='mddoc' style='--c:teal'></div>
+
+		</div>
+
+		
+
+
+        <div class='footer' id='ACKS' style=" --c: gray; --weight: bold; --ff:monospace; --bt:dotted seagreen 1px" >
+			&nbsp; 
+			<a style='--td:none' target='blank' href='https://usc.edu'> University of Southern California </a> 
+			&nbsp; | &nbsp;
+			<a style='--td:none' href='https://viterbischool.usc.edu/' target='blank'> USC Viterbi </a>  
+			&nbsp; | &nbsp;
+			<a style='--td:none' href='https://bytes.usc.edu/ee250/' target='blank'> EE250 </a>
+			<!--&nbsp; | &nbsp; ACKS:
+			<a style='--td:none' v-for='(val,idx) in acks' :href='val' target='blank'>
+				{{idx}}
+			</a>-->
+		</div>
+
+	</div>
+
+</body>
+
+
+<script src="assets/asciinema-player.js"></script>
+
+<script src='https://cdn.jsdelivr.net/npm/umbrellajs@3.2.3/umbrella.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.7/marked.min.js'></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+
+<link rel="stylesheet"
+      href="//unpkg.com/@highlightjs/cdn-assets@10.5.0/styles/night-owl.min.css">
+<script src="//unpkg.com/@highlightjs/cdn-assets@10.5.0/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<script src="assets/emoji-codex.js"></script>
+
+<script src='assets/ee250/common.js'></script>
+<script src='assets/ee250/mddoc.js'></script>
+<script src='assets/ee250/githubapi.js'></script>
+
+
+<script>
+
+//gen reservation timeline table
+for (var i=0;i<24;i++)
+{
+	ifmt = i>9?i:'0'+i;
+	iplusfmt = (i+1)>9?(i+1):'0'+(i+1)
+
+	u('.resourcetimeline').append(`<span> ${ifmt}:00 - ${ifmt}:30  </span>  <span> ${ifmt}:30 - ${iplusfmt}:00 </span>`)
+}
+
+u('.resourcetimeline span').each(function(node,i){
+	u(node).on('click',function(){ console.log(u(this).html()) })
+})
+</script>
+
+
+<script>
+
+	vueCommenters = new Vue({
+			el: '#commenters',
+			data:{
+				commenters:[]
+			},
+		})
+
+		function show_commenters(GIST_URL){
+					u('#whatisEE250 > a').first().href=GIST_URL
+					
+					parts=GIST_URL.split('/')
+					GIST_ID=parts[parts.length-1];
+					
+					EE250IS_GIST = new GITHUBAPI(GIST_URL);
+					EE250IS_GIST.gistcomments.then((data)=>{
+						
+						var comments=[]
+						window.commenters=[]
+						//reverse for latest comments - reverse() does in place
+						data.reverse()
+
+						//Emoji Codex
+						emoji = new Codex()
+
+						
+						for(d of data){
+
+							var usertemplate=`<a target='blank' href='${d.user.html_url}' style='--c:gold; --td:underline'>${d.user.login}</a>`
+							
+
+							var user = {}
+							user.name = d.user.login
+							user.url = d.user.html_url
+							user.avatar = d.user.avatar_url
+							user.comment = emoji.translate(d.body)
+				
+
+
+							//console.log(user.comment)
+
+							//https://css-tricks.com/snippets/javascript/random-hex-color/
+							var r = Math.floor(Math.random()*150)+100;
+							var g = Math.floor(Math.random()*150)+100;
+							var b = Math.floor(Math.random()*150)+100;
+							var randomColor = `rgb(${r},${g},${b})`
+
+							user.randomcolor = randomColor;
+							
+							//https://una.im/CSSgram/
+							filters = ['_1997','brannan','moon','nashville','toaster','walden']
+							randomFilter = filters[Math.floor(Math.random()*filters.length)]
+							
+							user.randomfilter = randomFilter;
+							
+							//DEBUG
+							//for(var i=0;i<10;i++) //uncomment line for debugging and testing multiple users
+							{
+								comments.push(`EE250 is <span style='--c:crimson'>${d.body}</span> says ${usertemplate}`)
+								window.commenters.push(user)
+							}
+						}
+
+						//make commenters visible only after fetch
+						// this is to prevent {{user.name}} to showing up as api.github.com is slow to retch
+						
+						//also do not show if no users have commenteed
+						if(window.commenters.length!==0){
+							el=u('#commenters')
+							el.attr('style',el.attr('style').replace('--v:hidden','--v:visible'))
+						}
+						//comments = ["EE250 is Interesting says NeveIsa.", "EE250 is cool"]
+						
+						window.ee250is = new Typed('#EE250is', {
+						onComplete: function(pos,self){
+							u('#EE250is').addClass('fadeIn fadeOut')
+							setTimeout(()=>u('#commenters, #whatisEE250').addClass('fadeIn fadeOut'),1000);
+							setTimeout( ()=>{u('#commenters, #whatisEE250').removeClass('fadeIn')},2000)
+							setTimeout(()=>{window.ee250is.destroy()},2000)
+							},
+						onStringTyped: (pos,self)=>{vueCommenters.commenters.push(window.commenters[pos])},
+						strings: comments,
+						startDelay: 500,
+						typeSpeed: 5,
+						backSpeed: 0,
+						backDelay: 700,
+						smartBackspace: true, // this is a default
+						loop: false,});
+				})
+			}
+
+</script>
+
+
+<script>
+	vueSiteLogo = new Vue({
+    el: '#sitelogo',
+    data:{
+        sitelogo:''
+    }
+})
+</script>
+
+<script>
+	configure_site()
+	.then(config=>{ 
+		show_commenters(config.gists.EE250is);
+		return Promise.resolve(config)
+	})
+	.then(config=>{console.log(config); return Promise.resolve(config)})
+	.then((config)=>{mddoc_fill(`${config.siteintro_doc}`,'.mddoc'); return Promise.resolve(config)})
+	.then(config=>{vueSiteLogo.sitelogo = config.site.logo;return Promise.resolve(config)})
+	
+</script>
+
+
+</html>

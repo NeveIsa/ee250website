@@ -1,0 +1,111 @@
+
+body{
+    background: black;
+}
+
+input {
+    background:inherit !important;
+    border:solid royalblue 1px;
+    color:rgb(92, 235, 227);
+}
+
+a:hover{
+    color: blueviolet;
+}
+
+.hoverpointer{
+    cursor: pointer;
+}
+
+.fadeOut {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3 ease-in-out;
+  }
+
+  .fadeIn {
+    opacity:0;
+  }
+
+/* SCROLLBAR*/
+/* Works on Firefox */
+* {
+scrollbar-width: thin;
+scrollbar-color: green lightgreen;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    height: 0.25em;
+    width: 0.25em;
+}
+
+*::-webkit-scrollbar-track {
+background: green;
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: lightgreen;
+border-radius: 0.2em;
+/*border: 3px solid orange;*/
+}
+
+*::-webkit-scrollbar-track:horizontal {
+    background: green;
+}
+
+*::-webkit-scrollbar-thumb:horizontal{
+    background-color: lightgreen;
+    scrollbar-width: thin;
+    border-radius: 0.2em;
+}
+
+
+/* GITHUB USERS */
+.github_user img{
+    height: 10em;
+    width: 10em;
+    margin-top: 0;
+}
+.github_user p{
+    margin-top: 0;
+    margin-bottom: 0.3em;
+}
+
+.github_user{
+    /* display:none; */
+    position: absolute;
+    margin-top: 2em;
+    /*top:0px;
+    left:0px;*/
+    height: 10em;
+    width: 10em;
+    font-weight: 5em;
+    opacity: 0;
+    z-index: -1;
+}
+
+#commenters{
+    margin:1em;
+}
+
+#commenters a:hover  ~ .github_user{
+    display: block;
+    z-index: 5;
+    opacity: 0.9;
+    transition: 1s;
+}
+
+#commenters a:hover{
+    
+    background-color: invert;
+}
+
+#commenterslist {
+    position: relative;
+}
+
+/* GITHUB USERS */

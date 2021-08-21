@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  mqtt:
+    image: eclipse-mosquitto
+    ports:
+            - "1883:1883"
+            - "2553:2553"
+    volumes:
+            - .:/code
+            - ./mosquitto:/mosquitto
+            - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
