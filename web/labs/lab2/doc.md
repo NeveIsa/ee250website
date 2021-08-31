@@ -12,8 +12,7 @@ title: Lab2 - GrovePi Kit
 
 
 ##### Due Date
-- Check off by <i style='color:white'>12th Feb, 2021</i>
-- Deadline is <i style='color:white'>12th Feb, 2021</i>
+- Deadline: <i style='color:white'>10th Sep, 2021</i>
 
 ---
 
