@@ -8,7 +8,7 @@ title: Lab3 - TCP, UDP, SOcket Programming
 
 ##### Useful links for current Lab
 
-- [Lab03 Folder](https://drive.google.com/drive/folders/1Ke3VYEe9rgB83OAVSq9rbe5j32ePptVr)
+- [Lab03 Folder](https://drive.google.com/drive/folders/1BzUtTliRgU8lWsFMfT0JjaZahdWSJCnz)
 - [Github Classroom Lab 3 Assignment](https://classroom.github.com/g/voOOd8HZ)
 
 ##### Lab3 Tools
