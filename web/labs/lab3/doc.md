@@ -44,7 +44,7 @@ You might not get it.**_
 
 ##### 1. Introduction
 
-In class, we?ve been discussing networking concepts such as TCP, UDP, and ports. However, they will be easier to understand once we start using them. In this lab, we will dive head first into socket programming. We handpicked examples we think will expose you to practical socket programming concepts that will help you understand and debug network problems you will see in future projects or see when using consumer applications at home. Also, we will guide you step by step to create a cloud server on Microsoft Azure Platform, and then you can talk to your server program using your client program.
+In class, we have been discussing networking concepts such as TCP, UDP, and ports. However, they will be easier to understand once we start using them. In this lab, we will dive head first into socket programming. We handpicked examples we think will expose you to practical socket programming concepts that will help you understand and debug network problems you will see in future projects or see when using consumer applications at home. Also, we will guide you step by step to create a cloud server on Microsoft Azure Platform, and then you can talk to your server program using your client program.
 
 ---
 
@@ -59,7 +59,7 @@ The socket programming itself is independent of any programming language. For ex
 
 ---
 
-![udpjoke](lab3/udpjoke.png)
+![udpjoke](labs/lab3/udpjoke.png)
 
 ---
 
@@ -84,7 +84,7 @@ To see how socket programs are written in C/C++ (recommended but not required fo
 
 ---
 
-![tcpjoke](lab3/tcpjoke.jpg)
+![tcpjoke](labs/lab3/tcpjoke.jpg)
 
 ---
 
@@ -139,9 +139,8 @@ Question 3: How did the speed of the TCP response change? Why might this happen?
 
 <ul><b style='color:red'>PART B: TCP Client and Server</b></ul>
 
-For this lab you?ll be working primarily in your VM and you?ll need to get the code from Github Classroom
+For this lab you'll be working primarily in your VM and you'll need to get the code from Github Classroom
 
-[Github Classroom Assignment](https://classroom.github.com/a/CEgiN_3D)
 
 Like in lab2, you will need to clone the repository created for you from Github and make sure to switch to the branch `ee250-master`. Do not push changes to this branch. The code you will be working on for this lab can be found in the path GrovePi-EE250/ee250/lab03. Although this lab does not require using a Raspberry Pi or GrovePi, this new private repository comes from the same parent repository and has the same structure. 
 
