@@ -1,0 +1,1 @@
+./ttyd.x86_64 --ssl --ssl-cert ../setup/certs/ee250io.tk/fullchain.pem --ssl-key ../setup/certs/ee250io.tk/privkey.pem --port 2503 bash -c '~/GrovePi-EE250/ee250/lab03/a.out $(python3 -c "import numpy as np; print(np.random.randint(5000,5010))") && sleep 5'

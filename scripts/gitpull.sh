@@ -1,0 +1,1 @@
+cd tutorialwebsite && git pull
