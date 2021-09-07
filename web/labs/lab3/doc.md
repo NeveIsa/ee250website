@@ -20,7 +20,6 @@ You will need to connect to the random port that is displayed in the terminal.
 
 If you want to test your server code wihtout setting up the Microsoft Azure Instance first, you can do so using the cloud terminal below.
 
-- [Free Cloud Ubuntu Instance - Test your server code here (Can also do on Azure)](https://lab.ee250io.tk:2511)
 
 ##### Due Date
 - Deadline is <i style='color:white'>19th Sep, 2021</i>
