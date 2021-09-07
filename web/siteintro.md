@@ -17,11 +17,11 @@ test: run
 	| |___| |___   / __/ ___) | |_| |
 	|_____|_____| |_____|____/ \___/ 
 	________________________________________________________
-	DISTRIBUTED SYSTEMS AND INTERNET OF THINGS - SPRING 2021
+	DISTRIBUTED SYSTEMS AND INTERNET OF THINGS - FALL 2021
 	````````````````````````````````````````````````````````
 </pre>
 ---
-<h6 style='color:crimson; text-decoration:none'> NOTE : This is EE250 tutorial website to supplement the course and not a replacement for the primary lab documents.  The primary course resources live at [Piazza](https://piazza.com/class/kjyn7hxh50n4j3) and the Lab Google Drive. </h6>
+<h6 style='color:crimson; text-decoration:none'> NOTE : This is EE250 tutorial website to supplement the course and not a replacement for the primary lab documents.  The primary course resources live at Piazza (linked below) and the Lab Google Drive. </h6>
 
 ---
 ###### Use this site
@@ -33,15 +33,9 @@ test: run
 ---
 
 ###### Useful Links
-- [EE250 on Piazza](https://piazza.com/class/kjyn7hxh50n4j3)
-
+- [EE250 Fall2021 on Piazza](https://piazza.com/class/ks827w6zkpa3t9)
+- [List of Labs](https://lab.ee250io.tk/mdreader.html?file=labs.md)
 ---
-###### Site Contents
-
-- [Landing Page (current page)]()
-- [List of Labs](mdreader.html?file=labs.md)
-- [Share your fun tutorial/project]()
-
 
 ###### Site Tools
 - [Raspberry Pi Web Terminal Cooperative Reservation](https://calendly.com/sbmohant/ee250-rpi-access)

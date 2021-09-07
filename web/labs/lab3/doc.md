@@ -23,7 +23,7 @@ If you want to test your server code wihtout setting up the Microsoft Azure Inst
 - [Free Cloud Ubuntu Instance - Test your server code here (Can also do on Azure)](https://lab.ee250io.tk:2511)
 
 ##### Due Date
-- Deadline is <i style='color:white'>17th Feb, 2021</i>
+- Deadline is <i style='color:white'>19th Sep, 2021</i>
 
 ---
 
