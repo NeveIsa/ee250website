@@ -20,6 +20,16 @@ test: run
 	DISTRIBUTED SYSTEMS AND INTERNET OF THINGS - FALL 2021
 	````````````````````````````````````````````````````````
 </pre>
+<pre style='color:purple; font-weight:bolder'>
+	 ________
+	|  {"Instructor" 		: "Prof. Mark Redekopp",
+	|	"Course Producers"  : [ 	
+	|							"Elijah Yap", "Emily London",
+	 							"Fayez Loan", "Haowen Liu", 
+	 							"Lorand Cheng", "Samuel Chase" 		
+	 				  		  ] 
+	 	"Teaching Assistant": "Sampad Mohanty"}              ____|
+</pre>
 ---
 <h6 style='color:crimson; text-decoration:none'> NOTE : This is EE250 tutorial website to supplement the course and not a replacement for the primary lab documents.  The primary course resources live at Piazza (linked below) and the Lab Google Drive. </h6>
 
