@@ -22,7 +22,7 @@ test: run
 </pre>
 <pre style='color:purple; font-weight:bolder'>
 	 ________
-	|  {"Instructor" 		: "Prof. Mark Redekopp",
+	| { "Instructor" 		: "Prof. Mark Redekopp",
 	|	"Course Producers"  : [ 	
 	|							"Elijah Yap", "Emily London",
 	 							"Fayez Loan", "Haowen Liu", 
