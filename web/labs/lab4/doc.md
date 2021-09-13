@@ -13,7 +13,7 @@ title: Lab4 - Web Services
 - [Github Classroom Lab 4 Assignment](https://classroom.github.com/g/r9DyHI0-)
 
 ##### Due Date
-- Deadline is <i style='color:white'>26th Feb, 2021</i>
+- Deadline is <i style='color:white'>24th Sep, 2021</i>
 
 ##### References and Tutorials
 - [Flask: Official](http://flask.pocoo.org/docs/1.0/tutorial/)
