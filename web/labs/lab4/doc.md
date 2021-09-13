@@ -6,12 +6,6 @@ title: Lab4 - Web Services
 ### {{FRONTMATTER.title}}
 ---
 
-##### Useful links for current Lab
-
-- [Piazza: EE250 Spring 2021](http://piazza.com/usc/pring2021/ee250)
-- [Lab04 Folder](https://drive.google.com/drive/folders/106R86Oj4Zv6bAqmmn5gRmdASl9OKAjHP?usp=sharing)
-- [Github Classroom Lab 4 Assignment](https://classroom.github.com/g/r9DyHI0-)
-
 ##### Due Date
 - Deadline is <i style='color:white'>24th Sep, 2021</i>
 
