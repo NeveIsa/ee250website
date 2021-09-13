@@ -96,7 +96,7 @@ Pickle is a Python module that allows us to serialize and deserialize data. Itâ€
 Practice using the pickle library in pickle_test.py by completing the TODOs. Use pickle to save and load list data from a file in binary format (see in-lined code comments for details). This experience will help you to complete Part 3.
 
 
-![pickle.png](lab4/pickle.png)
+![pickle.png](labs/lab4/pickle.png)
 *No guys, you gotta seriously check dill [dill extends python's pickle (not used in lab4)](https://dill.readthedocs.io/en/latest/)*
 
 ---
