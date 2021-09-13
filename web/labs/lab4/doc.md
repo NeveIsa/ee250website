@@ -84,7 +84,7 @@ Complete the TODO in mailServer.py to add support for GET requests made to the U
 
 
 
-![flask.jpg](lab4/flask.jpg)
+![flask.jpg](labs/lab4/flask.jpg)
 
 
 ---
