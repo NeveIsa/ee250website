@@ -18,6 +18,7 @@ title: Lab4 - Web Services
 - [Python Requests HTTP Library](http://docs.python-requests.org/en/master/)
 
 ---
+##### Table of Contents
 1. Introduction
 2. Github Classroom
 3. Setup
