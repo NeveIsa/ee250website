@@ -26,7 +26,9 @@ test: run
 	|	"Course Producers"  : [ 	
 	|							"Elijah Yap", "Emily London",
 	 							"Fayez Loan", "Haowen Liu", 
-	 							"Lorand Cheng", "Samuel Chase" 		
+	 							"Lorand Cheng", "Samuel Chase",
+	 							"Arthur Krut", 
+	 							"Arun Baalaaji Sankar Ananthan" 		
 	 				  		  ] 
 	 	"Teaching Assistant": "Sampad Mohanty"}              ____|
 </pre>
