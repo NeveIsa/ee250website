@@ -1,5 +1,5 @@
 ---
-title: Lab4 - Web Services
+title: Lab5 - MQTT
 externaljs:
   - https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js
 ---
@@ -12,107 +12,140 @@ externaljs:
 
 - [{{ LINKS.DATA.this }} @@5@@](mqtt://eclipse.usc.edu:1883)
 
-- [Piazza: EE250 Spring 2021](http://piazza.com/usc/pring2021/ee250)
-- [Lab04 Folder](https://drive.google.com/drive/folders/106R86Oj4Zv6bAqmmn5gRmdASl9OKAjHP?usp=sharing)
-- [Github Classroom Lab 4 Assignment](https://classroom.github.com/g/r9DyHI0-)
+- [Piazza: EE250 Fall 2021](https://piazza.com/class/ks827w6zkpa3t9)
+- [Lab05 Folder](https://drive.google.com/drive/folders/1P1iQCxWnAgXAaPxkgKsGVOPtcE35j1IM?usp=sharing)
+- [Lab05 Presentation](https://docs.google.com/presentation/d/1yW8yt_7zsppZhNF0GFvAGDwTRvvSFi8t/edit?usp=sharing&ouid=107228283071384316142&rtpof=true&sd=true)
+- [Github Classroom Lab 5 Assignment](https://classroom.github.com/g/weHxPK9F)
 
 ##### Due Date
-- Deadline is <i style='color:white'>26th Feb, 2021</i>
+- Deadline is <i style='color:white'>1st Oct, 2021</i>
 
 ##### References and Tutorials
-- [Flask: Official](http://flask.pocoo.org/docs/1.0/tutorial/)
-- [Flask: PythonSpot](https://pythonspot.com/flask-web-app-with-python/)
-- [Flask: TutorialsPoint](https://www.tutorialspoint.com/flask)
-- [Flask: YouTube](https://www.youtube.com/watch?v=MwZwr5Tvyxo)
-- [Pickle: Official](https://docs.python.org/3.5/library/pickle.html)
-- [Python Requests HTTP Library](http://docs.python-requests.org/en/master/)
+- [Paho Python Client Docs](https://www.eclipse.org/paho/index.php?page=clients/python/docs/index.php)
+- [Pub-Sub example file](https://github.com/usc-ee250-spring2021/GrovePi-EE250/blob/master/ee250/lab05/publisher_and_subscriber_example.py)
+
 
 ---
 1. Introduction
 2. Github Classroom
-3. Setup
-4. Part 1: Flask
-5. Part 2: Pickle
-6. Part 3: Persistence
-7. Test on Raspberry Pi (1 point bonus)
+3. Tips on Testing
+4. MQTT Setup
+5. Test publish-subscribe
+6. Part 1: LED and Ultrasonic Ranger
+7. Part 2: Button and LCD
 8. Demo and Code Grading Rubric
 ---
 
 ##### 1. Introduction
 
-In this lab you will gain experience developing your very own HTTP service. We will make use of a Python framework called Flask, which will handle a lot of the HTTP protocol for us. This frees us up to spend most of our time developing our application’s logic. For this lab we’ll be working building our very own simple mail service.
+The objective of this lab is to explore the use of the Publish-Subscribe messaging design pattern with the MQTT protocol. We have already explored the Client-Server architecture in the TCP, UDP, and Socket Programming lab. Unlike a Client-Server architecture that we saw in the previous labs, MQTT is a Publish-Subscribe architecture. This allows for decoupling of the data sources/generators from the data consumers/sinks. Also MQTT allows for an asynchronous data flow, i.e the data consumer does not have to make polling requests to receive the data from the data sources. Instead whenever new data is available, an entity called an MQTT Broker takes the responsibility to deliver it to the data consumers. It saves a lot of network bandwidth that might have gotten wasted if new data is generated based on events rather than uniform sampling in time.  
 
+We highly recommend watching this super quick introduction to MQTT and recap important concepts you learnt in class. 
 
-This lab relates closely to a future lab we will see in EE250 about RESTFul Services.  But here is a gentle introduction.
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/EIxdz-2rhLs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/SLwpqD8n3d0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-- [A gentle introduction to REST](https://flaviocopes.com/rest-api/)
 
 ---
 
 ##### 2. Github Classroom
-To join the new Github Classroom assignment, please follow the invite at the top of this page. From this lab on, you will create teams of up to two via the Github Classroom interface (but you can always work alone, and you can pick different teammates for different labs). Github will create a copy of our new starter code for this lab when you create a new team.
+To join the new Github Classroom assignment, please follow the invite link above. Similar to before, you will create teams of two via the Github Classroom interface. Github will create a copy of our new starter code for this lab when you create a new team.
 
-For this lab, create your branch off of master (not ee250-master). Make sure your lab04 folder has the MailClient.py, MailServer.py, etc files.
+Please link yourself to your @usc.edu so we can identify you, especially if your Github account is anonymous in nature. If you make a mistake when forming teams, simply leave your team and rejoin using the Github Classroom link below.
 
----
-
-##### 3. Setup
-To install the necessary packages on Raspbian and Ubuntu, running the following command:
-
-`sudo apt-get install python3-pip`  
-`sudo pip3 install flask python-dotenv`
-
-You’ll need Flask on your VM to complete this lab. To test your code on the raspberry pi (extra credit), you’ll need Flask on your RPi as well.
+<b style='color:red'>Hint: You will find the publisher_and_subscriber_example.py  code in the lab05 folder and the simple code examples in the lab5 google slides helpful.</b>
 
 ---
 
-##### 4. Part 1: Flask
-Flask is a very powerful web application framework for Python. It's impossible to cover the entire framework in just one lab session, so we will expose you to some of its features through a learn-by-example approach. In particular, you will complete some TODOs in the starter code to complete the mail service application.
+##### 3. Tips on Testing
+In this lab, you will need a GrovePi shield with sensors. However, you can use print statements and generate fake sensor reading values to provide feedback and emulate the scenario during your software development. When your software is mostly complete and tested, you can then integrate a GrovePi kit to generate real sensor data (e.g., ultrasonic ranger values) and actuate (e.g., turn on/off an LED).
 
-There are two scripts that you will use directly on the command line, one for the server and one for the client. They should be run in separate terminal windows, from within the lab04 folder. Here’s an example of how they can be called:
-
-`python3 mailServer.py -p 123`  
-`python3 mailClient.py -a localhost:5000 -p 123 -u your_name`
-
-If you forget what the arguments are, you can use the help flag:
-
-`python3 mailServer.py -h`  
-`python3 mailClient.py -h`
-
-Complete the TODO in mailServer.py to add support for GET requests made to the URL /mailbox/search. The mailClient.py is already designed to send this type of request and can be used for testing. Make sure you understand the code in mailboxManager.py as you’ll need to make use of it to complete this part.
-
-<b style='color:red'>Question 1: The Flask service outputs the URL for every request it receives. What is the URL for the get_mail request? What do you notice about your password?</b>
-
-
-
-![flask.jpg](lab4/flask.jpg)
+Since the broker IP is the only address you need, you can also prototype your code between two terminals on your VM before working with your raspberry pi. Focus on the MQTT messaging first and once that works, the Python code you wrote should be portable to the RPi.
 
 
 ---
 
-##### 5. Part 2: Pickle
+##### 4. MQTT Setup
+We are going to run publishers and subscribers on both your VM and Raspberry Pi. The first thing that we need to do is install the Paho library. We are specifically going to use the Python Paho-MQTT library. If you haven’t already installed `pip`, you will need it to install any python packages. To specifically install the python3 version of pip, `pip3`, run this command on both your VM and RPi.
 
-Pickle is a Python module that allows us to serialize and deserialize data. It’s similar to JSON, however it serializes data into a binary format instead of a string.
+`sudo apt install python3-pip`
 
-Practice using the pickle library in pickle_test.py by completing the TODOs. Use pickle to save and load list data from a file in binary format (see in-lined code comments for details). This experience will help you to complete Part 3.
+Next, install `paho-mqtt` via `pip3` on both your VM and RPi.
 
+`pip3 install paho-mqtt`
 
-![pickle.png](lab4/pickle.png)
-*No guys, you gotta seriously check dill [dill extends python's pickle (not used in lab4)](https://dill.readthedocs.io/en/latest/)*
+Then, you need to install the keyboard event listener library on your VM. The usage of this library has only been tested on native Linux and Linux VMs.
 
----
-
-##### 6. Part 3: Persistence
-With your new pickling skills, complete the TODOs in mailboxManager.py to persist your mailbox data across server shutdowns or crashes.
+`pip3 install pynput`
 
 ---
 
-##### 7. Test on Raspberry Pi (1 point bonus)
+##### 5. Test publish-subscribe
+Install mosquitto-clients and use the command line examples to understand how to use `mosquitto_pub` and `mosquitto_sub`. 
+
+`sudo apt install mosquitto-clients`
+
+On one terminal, subscribe to a topic at host eclipse.usc.edu on port 11000: 
+
+`mosquitto_sub -h eclipse.usc.edu -p 11000 -t YOUR_USERNAME`
+
+Then, open another terminal and publish a message to that topic. Note that the backslash is to indicate to  your bash shell to interpret the next line to be in-line. That is, “hello” should not be interpreted as a separate line but instead it should be interpreted inline right after “-m”. 
+
+`mosquitto_pub -h eclipse.usc.edu -p 11000 -t YOUR_USERNAME -m \
+“hello”`
+
+To better understand the commands better, you can always `man mosquitto_pub` or `man mosquitto_sub`.
+
+
+---
+
+##### 6. Part 1: LED and Ultrasonic Ranger
+Clone the assignment repository and branch off of the master branch. For this entire lab, you will use the uniqueness of your usc username to determine your topic names to make sure students do not interfere with one another’s topics. If you are working as a team, you can choose one of your usernames or come up with a custom name!
+
+###### A. Edit `vm_publisher.py`
+On your VM, you will run `vm_publisher.py`. Edit this file so that a message intended for the LED sensor is published on the appropriate topic when the appropriate key is pressed. 
+
+Table 1 contains the messages to publish and on which topic when a keyboard button is pressed. For Part 1, we ask you to start by completing only (1) and (2) in the table below. You will complete (3) through (6) in Part 2.
+
+|      | Keyboard Button | Topic | Message |
+|------| --------------- | ----- | ------- |
+| 1)   | A               | “YOUR_USERNAME/led” | “LED_ON”  |
+| 2)   | D               | “YOUR_USERNAME/led” | “LED_OFF” |
+| 3)   | W               | “YOUR_USERNAME/lcd” | "w"       |
+| 4)   | A               | “YOUR_USERNAME/lcd” | "a"       |
+| 5)   | S               | “YOUR_USERNAME/lcd” | "s"       |
+| 6)   | D               | “YOUR_USERNAME/lcd” | "d"       |
+
+###### B. Edit `vm_subscriber.py`
+In a separate terminal on your VM, you will run `vm_subscriber.py`. Edit this code to subscribe to the topic “YOUR_USERNAME/ultrasonicRanger” with a custom callback that prints the ultrasonic ranger values received from the RPi, i.e., “VM: [VALUE] cm”.
+
+<b style='color:red'>Hint: Look up the python string decode method.</b>
+
+###### C. Edit `rpi_pub_and_sub.py`
+On the Raspberry Pi side, you will run the `rpi_pub_and_sub.py` program. Edit this program to be both a publisher and subscriber. 
+* Create a custom callback to be called when messages are received on the “YOUR_USERNAME/led” topic. For each message received, the callback should check whether it is an “LED_ON” message or “LED_OFF” message, formatted correctly, and turn on and off a GrovePi LED accordingly. 
+If your LED is not working, try powering down your system, pulling out the LED bulb, flipping it 180 degrees, and reinserting.
+* Edit this code to loop and read the ultrasonic ranger at 1 second intervals and publish the distance value to the topic “YOUR_USERNAME/ultrasonicRanger”. 
+
+<b style='color:red'>Hint: You will need the grovepi library.</b>
+
+
+---
+
+##### 7. Part 2: Button and LCD
 
 Figure out how to run the server side of your HTTP application on the raspberry pi, with the client side running on your VM. Show this in your screen recording demo for extra credit.
+
+###### A. Button
+Connect a button to the GrovePi shield. 
+* In the same loop polling the ultrasonic ranger in  `rpi_pub_sub.py`, you should now monitor the button to see if it is pressed. If the button is pressed, the program should publish the string "Button pressed!" to the topic “YOUR_USERNAME/button”. 
+* On the VM side, the `vm_subscriber.py` program should additionally subscribe to the “YOUR_USERNAME/button” topic. Create another new custom callback to this topic, and print out the “Button pressed!” string in this callback when the message is received.
+
+###### B. LCD
+Connect the screen to your GrovePi shield.
+* In addition to the “YOUR_USERNAME/led” topic, `vm_publisher.py` will now have to publish the messages “w”, “a”, “s”, and “d” to the “YOUR_USERNAME/lcd” topic when those keyboard buttons are pressed. 
+* The `rpi_pub_sub.py` program should subscribe to this topic (and add an additional custom callback), and print those single character messages on the GrovePi LCD when they are received.
+
+<b style='color:red'>Hint: You will need the grovepi library.</b>
 
 ---
 
@@ -120,18 +153,20 @@ Figure out how to run the server side of your HTTP application on the raspberry 
 
 ##### 5.Demo and Code Grading Rubrics
 
-<b style='color:red'>All files are to be submitted via Vocareum as a team.</b>
+<b style='color:red'>Record a video which demonstrates each element of your code, according to the rubric. Create a README.md file in your lab05 folder and include a link to the demo. All files are to be submitted via vocareum as a team</b>
 
 | Points      | Description 														|
 | ----------- | ----------- 														|
 | DEMO	      | Record a video and share the link in the `README.md` file 							|
-| 2	      | The search_mail request works correctly, with and without a search field. The search_mail responds correctly if the password is incorrect.      							|
-| 2	      | Mailbox data is loaded on server start and persisted in a pickle file.	|
-| CODE	      | `pickle_test.py, mailServer.py, mailboxManager.py, README.md`								|
-| 1	      | List all team member names and the link to your shared GitHub repo in the README file.       	|
-| 5	      | `search_mailbox_callback()` is properly implemented using a route decorator, supports fields if specified, handles password errors, and returns a response using JSON	|
-| 2	      | `pickle_test.py` is implemented using the pickle module  	|
-| 2	      | `mailboxManager` persists data (loads & saves) using pickle 	|
-| WRITEUP  | README writeup file		|
-| 1	      | Question 1   														|
-| 	      | Total Possible: 15 points (16 with extra credit)					|
+| 2	      | “w”, “a”, “s”, and “d” are displayed on the GrovePi LCD when the corresponding keyboard buttons are pressed. |
+| 2	      | The distance from the Grove Ultrasonic Ranger prints out to the terminal on the VM script (vm_subscriber.py) every second.	|
+| 2       | The string “Button pressed” prints out on the VM (`vm_subscriber.py`) when the GrovePi button is pressed. The string is also formatted correctly. | 
+| 2       | The GrovePi LED is turned on and off when the keyboard keys A and D (not capitalized) are pressed, respectively. |
+| CODE	      | `rpi_pub_and_sub.py, vm_publisher.py, vm_subscriber.py`						|
+| 0	      | List all team member names and the link to your shared GitHub repo in the README file.       	|
+| 4	      | Separate callbacks are defined for each topic subscribed (the default on_message() callback is not used to handle the topics).	|
+| 4       | The message callbacks for the led, lcd, and button topics check for correct string formatting before taking any actions.  	|
+| 2	      | The message strings published by `vm_publisher.py` are formatted correctly as per the assignment.	|
+| 2       | The message strings published by `rpi_pub_sub.py` are formatted correctly as per the assignment.								|
+| 2       | Meaningful comments and code correctness (no python syntax errors, sufficiently bug-free for the assignment, etc.)                 |
+| 	      | Total Possible: 22 points				|
