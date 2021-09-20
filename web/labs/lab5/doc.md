@@ -12,10 +12,9 @@ externaljs:
 
 - [{{ LINKS.DATA.this }} @@5@@](mqtt://eclipse.usc.edu:1883)
 
-- [Piazza: EE250 Fall 2021](https://piazza.com/class/ks827w6zkpa3t9)
 - [Lab05 Folder](https://drive.google.com/drive/folders/1P1iQCxWnAgXAaPxkgKsGVOPtcE35j1IM?usp=sharing)
-- [Lab05 Presentation](https://docs.google.com/presentation/d/1yW8yt_7zsppZhNF0GFvAGDwTRvvSFi8t/edit?usp=sharing&ouid=107228283071384316142&rtpof=true&sd=true)
-- [Github Classroom Lab 5 Assignment](https://classroom.github.com/g/weHxPK9F)
+- [Lab05 Presentation](https://docs.google.com/presentation/d/1yW8yt_7zsppZhNF0GFvAGDwTRvvSFi8t/edit#slide=id.p1)
+- [Github Classroom Lab 5 Assignment](https://classroom.github.com/g/md6hiCZ5)
 
 ##### Due Date
 - Deadline is <i style='color:white'>1st Oct, 2021</i>
@@ -90,8 +89,7 @@ On one terminal, subscribe to a topic at host eclipse.usc.edu on port 11000:
 
 Then, open another terminal and publish a message to that topic. Note that the backslash is to indicate to  your bash shell to interpret the next line to be in-line. That is, “hello” should not be interpreted as a separate line but instead it should be interpreted inline right after “-m”. 
 
-`mosquitto_pub -h eclipse.usc.edu -p 11000 -t YOUR_USERNAME -m \
-“hello”`
+`mosquitto_pub -h eclipse.usc.edu -p 11000 -t YOUR_USERNAME -m "hello"`
 
 To better understand the commands better, you can always `man mosquitto_pub` or `man mosquitto_sub`.
 
