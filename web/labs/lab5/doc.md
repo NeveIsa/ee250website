@@ -10,14 +10,16 @@ externaljs:
 
 ##### Useful links for current Lab
 
-- [{{ LINKS.DATA.this }} @@5@@](mqtt://eclipse.usc.edu:1883)
 
 - [Lab05 Folder](https://drive.google.com/drive/folders/1P1iQCxWnAgXAaPxkgKsGVOPtcE35j1IM?usp=sharing)
 - [Lab05 Presentation](https://docs.google.com/presentation/d/1yW8yt_7zsppZhNF0GFvAGDwTRvvSFi8t/edit#slide=id.p1)
 - [Github Classroom Lab 5 Assignment](https://classroom.github.com/g/md6hiCZ5)
 
-##### Due Date
-- Deadline is <i style='color:white'>1st Oct, 2021</i>
+<!--
+- [{{ LINKS.DATA.this }} @@5@@](mqtt://eclipse.usc.edu:1883)
+-->
+
+**Contributors: Fayez Loan, Sampad Mohanty**
 
 ##### References and Tutorials
 - [Paho Python Client Docs](https://www.eclipse.org/paho/index.php?page=clients/python/docs/index.php)

@@ -6,8 +6,6 @@ title: Lab4 - Web Services
 ### {{FRONTMATTER.title}}
 ---
 
-##### Due Date
-- Deadline is <i style='color:white'>24th Sep, 2021</i>
 
 ##### References and Tutorials
 - [Flask: Official](http://flask.pocoo.org/docs/1.0/tutorial/)

@@ -21,8 +21,6 @@ You will need to connect to the random port that is displayed in the terminal.
 If you want to test your server code wihtout setting up the Microsoft Azure Instance first, you can do so using the cloud terminal below.
 
 
-##### Due Date
-- Deadline is <i style='color:white'>19th Sep, 2021</i>
 
 ---
 
