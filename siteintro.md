@@ -22,14 +22,12 @@ test: run
 </pre>
 <pre style='color:purple; font-weight:bolder'>
 	 ________
-	| { "Instructor" 		: "Prof. Mark Redekopp",
+	| { "Instructor" 		: "Prof. Shahin Nazarian",
 	|	"Course Producers"  : [ 	
-	|							"Elijah Yap", "Emily London",
-	 							"Fayez Loan", "Haowen Liu", 
-	 							"Lorand Cheng", "Samuel Chase",
-	 							"Arthur Krut", 
-	 							"Arun Baalaaji Sankar Ananthan" 		
-	 				  		  ] 
+	|							"Elijah Yap", "Emily London", 
+	 							"Lorand Cheng", "Will Volpe" 		
+	 				  		  ]
+	 	"Graders"			: [ "Nancy Arora", "Pavan Manjunath" ] 
 	 	"Teaching Assistant": "Sampad Mohanty"}              ____|
 </pre>
 ---
