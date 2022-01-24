@@ -6,11 +6,6 @@ title: Lab3 - TCP, UDP, SOcket Programming
 ### {{FRONTMATTER.title}}
 ---
 
-##### Useful links for current Lab
-
-- [Lab03 Folder](https://drive.google.com/drive/folders/1BzUtTliRgU8lWsFMfT0JjaZahdWSJCnz)
-- [Github Classroom Lab 3 Assignment](https://classroom.github.com/g/voOOd8HZ)
-
 ##### Lab3 Tools
 
 To test your client code, you may use the servers we have hosted in the link below. 

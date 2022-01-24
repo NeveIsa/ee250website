@@ -6,11 +6,6 @@ title: Lab01 - Workspace Setup
 ### {{FRONTMATTER.title}}
 ---
 
-###### Useful links for current Lab
-
-- [Lab01 Folder](https://drive.google.com/drive/folders/1Ke3VYEe9rgB83OAVSq9rbe5j32ePptVr)
-
-
 ###### 3. Overcoming Command Line
 [Overcoming Command-Line |Prof. Phillip Guo Blog Link](https://pg.ucsd.edu/command-line-bullshittery.htm)
 

@@ -8,13 +8,6 @@ externaljs:
 ### {{FRONTMATTER.title}}
 ---
 
-##### Useful links for current Lab
-
-
-- [Lab05 Folder](https://drive.google.com/drive/folders/1P1iQCxWnAgXAaPxkgKsGVOPtcE35j1IM?usp=sharing)
-- [Lab05 Presentation](https://docs.google.com/presentation/d/1yW8yt_7zsppZhNF0GFvAGDwTRvvSFi8t/edit#slide=id.p1)
-- [Github Classroom Lab 5 Assignment](https://classroom.github.com/g/md6hiCZ5)
-
 <!--
 - [{{ LINKS.DATA.this }} @@5@@](mqtt://eclipse.usc.edu:1883)
 -->
