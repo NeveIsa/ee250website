@@ -11,12 +11,6 @@ title: Lab2 - GrovePi Kit
 - [Lab02 Folder](https://drive.google.com/drive/folders/1KZFDQIDeMj5s57xFg5pmpZP-GC1JIIEr)
 
 
-##### Due Date
-- Deadline: <i style='color:white'>10th Sep, 2021</i>
-
----
-
-
 ##### 0. Enable I2C Bus on the Raspberry Pi
 
 - [Steps to Enable I2C Bus on RPi](https://www.raspberrypi-spy.co.uk/2014/11/enabling-the-i2c-interface-on-the-raspberry-pi)

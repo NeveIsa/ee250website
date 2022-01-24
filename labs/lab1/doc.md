@@ -11,13 +11,6 @@ title: Lab01 - Workspace Setup
 - [Lab01 Folder](https://drive.google.com/drive/folders/1Ke3VYEe9rgB83OAVSq9rbe5j32ePptVr)
 
 
-###### Due Date
-- Check off by <i style='color:white'>1st Sep, 2021</i>
-- Deadline is <i style='color:white'>3rd Sep, 2021</i>
-
----
-
-
 ###### 3. Overcoming Command Line
 [Overcoming Command-Line |Prof. Phillip Guo Blog Link](https://pg.ucsd.edu/command-line-bullshittery.htm)
 
