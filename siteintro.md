@@ -17,7 +17,7 @@ test: run
 	| |___| |___   / __/ ___) | |_| |
 	|_____|_____| |_____|____/ \___/ 
 	________________________________________________________
-	DISTRIBUTED SYSTEMS AND INTERNET OF THINGS - FALL 2021
+	DISTRIBUTED SYSTEMS AND INTERNET OF THINGS - SPRING 2022
 	````````````````````````````````````````````````````````
 </pre>
 <pre style='color:purple; font-weight:bolder'>
