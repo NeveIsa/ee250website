@@ -31,7 +31,7 @@ test: run
 	 	"Teaching Assistant" : "Sampad Mohanty"}              ____|
 </pre>
 ---
-<h6 style='color:crimson; text-decoration:none'> NOTE : This is EE250 tutorial website to supplement the course and not a replacement for the primary lab documents.  The primary course resources live at Piazza (linked below) and the Lab Google Drive. </h6>
+<h6 style='color:crimson; text-decoration:none'> NOTE : This is EE250 tutorial website to supplement the course and not a replacement for the primary lab documents.  The primary course resources live on Blackboard and the Student Resources folder on Google Drive. </h6>
 
 ---
 ###### Use this site
